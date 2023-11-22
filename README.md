@@ -1,6 +1,39 @@
 # MedControl API
 Projeto referente à plataforma mobile de auxílio aos profissionais do ramo farmacêutico, denominado "MedControl". A finalidade principal é facilitar o controle de estoque e compras para farmácias, tornando o processo menos burocrático e mais eficiente. A API MedControl gerencia transações, funcionários, medicamentos, estoque, departamentos e unidades de trabalho para auxiliar profissionais do ramo farmacêutico no controle de estoque e compras.
+# Impactos 
+MedControl oferece vários impactos positivos na saúde pública e na sociedade, proporcionando melhorias significativas para profissionais do ramo farmacêutico, pacientes e a comunidade em geral. Alguns dos benefícios incluem:
 
+1. **Eficiência no Controle de Estoque:**
+   - Facilita o acompanhamento e controle preciso dos níveis de estoque de medicamentos em farmácias.
+   - Reduz a possibilidade de falta de medicamentos essenciais, garantindo uma oferta contínua para os pacientes.
+
+2. **Otimização de Compras:**
+   - Ajuda na identificação de padrões de compra, permitindo uma melhor previsão de demanda e otimização do processo de compras.
+   - Evita compras excessivas ou insuficientes, contribuindo para a gestão eficiente dos recursos financeiros.
+
+3. **Registro Detalhado de Transações:**
+   - Fornece um histórico detalhado de todas as transações, melhorando a rastreabilidade e a prestação de contas.
+   - Permite uma análise aprofundada do consumo de medicamentos e dos padrões de prescrição.
+
+4. **Atendimento Mais Eficiente:**
+   - Capacita os profissionais de farmácia a oferecer um atendimento mais rápido e preciso aos pacientes, com acesso imediato às informações sobre a disponibilidade de medicamentos.
+
+5. **Redução de Desperdício:**
+   - Evita o desperdício de recursos ao reduzir a possibilidade de medicamentos vencidos ou em excesso no estoque.
+   - Contribui para práticas mais sustentáveis, alinhadas com a gestão responsável de recursos farmacêuticos.
+
+6. **Melhoria na Segurança do Paciente:**
+   - Minimiza o risco de erros de administração de medicamentos, garantindo que os medicamentos certos estejam disponíveis quando necessários.
+   - Ajuda a evitar situações críticas de saúde devido à falta de medicamentos essenciais.
+
+7. **Aumento da Produtividade dos Profissionais:**
+   - Simplifica as operações diárias, permitindo que os profissionais farmacêuticos dediquem mais tempo ao atendimento ao paciente e atividades críticas.
+
+8. **Contribuição para Saúde Pública:**
+   - Facilita a implementação de políticas de saúde pública ao garantir a disponibilidade de medicamentos cruciais.
+   - Oferece dados valiosos para pesquisas e análises sobre padrões de saúde e uso de medicamentos na comunidade.
+
+Globalmente, esses impactos positivos contribuem para uma gestão mais eficaz de recursos farmacêuticos, melhorando a qualidade do atendimento ao paciente e fortalecendo o sistema de saúde como um todo.
 # Endpoints
 
 1. **Funcionário:**
@@ -26,7 +59,45 @@ Projeto referente à plataforma mobile de auxílio aos profissionais do ramo far
 6. **Unidade de Trabalho:**
    - Ancora: `unidade-de-trabalho`
    - Uso: [Unidade de Trabalho](#unidade-de-trabalho)
-  
+
+  Peço desculpas pela omissão. Vamos adicionar as instruções para instalar dependências e executar o código.
+
+## Instruções de Instalação e Execução
+
+### Requisitos Prévios
+- JDK (Java Development Kit) instalado
+- Maven instalado
+
+### Passos para Instalação
+
+1. **Clone o repositório:**
+   ```bash
+   git clone https://github.com/gabrielaalvescosta/med-control-api.git
+   cd med-control-api
+   ```
+
+2. **Build do Projeto:**
+   ```bash
+   mvn clean install
+   ```
+
+### Configuração do Banco de Dados
+
+1. Configure as propriedades do banco de dados no arquivo `application.properties`:
+   ```
+   spring.datasource.url=jdbc:mysql://localhost:3306/nome_do_banco
+   spring.datasource.username=seu_usuario
+   spring.datasource.password=sua_senha
+   ```
+
+### Execução do Projeto
+
+1. **Execute o projeto usando Maven:**
+   ```bash
+   mvn spring-boot:run
+   ```
+
+A API estará acessível em `http://localhost:8080/medcontrol/api`.
 
 ## Funcionário
 #### Obter detalhes do funcionário a partir do ID
