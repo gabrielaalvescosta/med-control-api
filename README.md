@@ -81,15 +81,6 @@ Globalmente, esses impactos positivos contribuem para uma gestão mais eficaz de
    mvn clean install
    ```
 
-### Configuração do Banco de Dados
-
-1. Configure as propriedades do banco de dados no arquivo `application.properties`:
-   ```
-   spring.datasource.url=jdbc:mysql://localhost:3306/nome_do_banco
-   spring.datasource.username=seu_usuario
-   spring.datasource.password=sua_senha
-   ```
-
 ### Execução do Projeto
 
 1. **Execute o projeto usando Maven:**
@@ -97,7 +88,7 @@ Globalmente, esses impactos positivos contribuem para uma gestão mais eficaz de
    mvn spring-boot:run
    ```
 
-A API estará acessível em `http://localhost:8080/medcontrol/api`.
+A API estará acessível em `http://localhost:8888/medcontrol/api`.
 
 ## Funcionário
 #### Obter detalhes do funcionário a partir do ID
