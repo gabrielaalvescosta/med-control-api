@@ -15,7 +15,7 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v2
 
       - name: Set up JDK 11
         uses: actions/setup-java@v3
@@ -23,14 +23,7 @@ jobs:
           distribution: 'adopt'
           java-version: '18'
 
-      - name: Build with Maven
-        run: mvn clean install
-
-      - name: Upload artifact for deployment job
-        uses: actions/upload-artifact@v3
-        with:
-          name: java-app
-          path: '${{ github.workspace }}/target/*.jar'
+      # ...
 
   deploy:
     runs-on: ubuntu-latest
@@ -47,9 +40,9 @@ jobs:
 
       - name: Deploy to Azure Web App
         id: deploy-to-webapp
-        uses: azure/webapps-deploy@v3
+        uses: azure/webapps-deploy@v2
         with:
           app-name: 'medcontrolapi'
           slot-name: 'Production'
-          package: '${{ github.workspace }}/java-app/*.jar'  # Ajuste o caminho para o arquivo JAR
+          package: '*.jar'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_7DACC51BC82F44B7B7546446BBCA7B2E }}
