@@ -18,12 +18,19 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Set up JDK 11
-        uses: actions/setup-java@v3
+        uses: actions/setup-java@v2
         with:
           distribution: 'adopt'
-          java-version: '18'
+          java-version: '11'
 
-      # ...
+      - name: Build with Maven
+        run: mvn clean install
+
+      - name: Upload artifact for deployment job
+        uses: actions/upload-artifact@v2
+        with:
+          name: java-app
+          path: '${{ github.workspace }}/target/*.jar'
 
   deploy:
     runs-on: ubuntu-latest
@@ -34,7 +41,7 @@ jobs:
 
     steps:
       - name: Download artifact from build job
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v2
         with:
           name: java-app
 
@@ -44,5 +51,5 @@ jobs:
         with:
           app-name: 'medcontrolapi'
           slot-name: 'Production'
-          package: '*.jar'
+          package: '${{ github.workspace }}/java-app/*.jar'  # Ajuste o caminho para o arquivo JAR
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_7DACC51BC82F44B7B7546446BBCA7B2E }}
