@@ -60,8 +60,6 @@ Globalmente, esses impactos positivos contribuem para uma gestão mais eficaz de
    - Ancora: `unidade-de-trabalho`
    - Uso: [Unidade de Trabalho](#unidade-de-trabalho)
 
-  Peço desculpas pela omissão. Vamos adicionar as instruções para instalar dependências e executar o código.
-
 ## Instruções de Instalação e Execução
 
 ### Requisitos Prévios
