@@ -1,7 +1,7 @@
 package com.medcontrol.medcontrol.controller;
 
 import com.medcontrol.medcontrol.model.DepartamentoModel;
-import com.medcontrol.model.DepartamentoModel;
+import com.medcontrol.medcontrol.service.DepartamentoService;
 import com.medcontrol.service.DepartamentoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;

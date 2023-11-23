@@ -1,5 +1,5 @@
 import com.medcontrol.medcontrol.model.FuncionarioModel;
-import com.medcontrol.model.FuncionarioModel;
+import com.medcontrol.medcontrol.service.FuncionarioService;
 import com.medcontrol.service.FuncionarioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;

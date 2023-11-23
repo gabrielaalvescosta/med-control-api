@@ -1,7 +1,7 @@
 package com.medcontrol.medcontrol.controller;
 
 import com.medcontrol.medcontrol.model.EstoqueModel;
-import com.medcontrol.model.EstoqueModel;
+import com.medcontrol.medcontrol.service.EstoqueService;
 import com.medcontrol.service.EstoqueService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;

@@ -1,7 +1,7 @@
 package com.medcontrol.medcontrol.controller;
 
 import com.medcontrol.medcontrol.model.TransacaoModel;
-import com.medcontrol.model.TransacaoModel;
+import com.medcontrol.medcontrol.service.TransacaoService;
 import com.medcontrol.service.TransacaoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;

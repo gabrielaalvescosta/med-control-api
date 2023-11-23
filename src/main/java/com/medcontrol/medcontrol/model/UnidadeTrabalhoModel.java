@@ -7,7 +7,7 @@ import java.util.List;
 @Data
 @Entity
 @Table(name = "unidade_de_trabalho")
-public class UnidadeDeTrabalhoModel {
+public class UnidadeTrabalhoModel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
