@@ -1,7 +1,10 @@
 package com.medcontrol.medcontrol.exception;
 
-public class FuncionarioNotFoundException extends RuntimeException {
-    public FuncionarioNotFoundException(String message) {
+public class EstoqueNotFoundException extends RuntimeException{
+
+    public EstoqueNotFoundException(String message) {
         super(message);
     }
+
 }
+
