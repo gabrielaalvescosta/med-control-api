@@ -20,7 +20,7 @@ jobs:
         uses: actions/setup-java@v3
         with:
           distribution: 'adopt'
-          java-version: '17'
+          java-version: '11'
 
       - name: Build with Maven
         run: mvn clean install
@@ -48,14 +48,3 @@ jobs:
           slot-name: 'Production'
           package: '*.jar'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_7DACC51BC82F44B7B7546446BBCA7B2E }}
-
-  server:
-    port: 8888
-
-  spring:
-    cloud:
-      config:
-        server:
-          git:
-            uri: https://github.com/gabrielaalvescosta/med-control-api.git
-            search-paths: med-control-api
