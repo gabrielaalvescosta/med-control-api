@@ -680,13 +680,29 @@ GET /medcontrol/api/departamento/listar
 
 ```json
 [
-   {
-      "id": 1,
-      "nome": "Departamento A"
-   },
+{
+      "id": 1
+      "nome": "Farmácia",
+      "funcionarios": [
+    {
+      "nome": "Nome do Funcionário 1"
+    },
+    {
+      "nome": "Nome do Funcionário 3"
+    }
+  ]
+}
    {
       "id": 2,
-      "nome": "Departamento B"
+      "nome": "Caixa"
+      "funcionarios": [
+    {
+      "nome": "Nome do Funcionário 2"
+    },
+    {
+      "nome": "Nome do Funcionário 4"
+    }
+  ]
    }
 ]
 ```
