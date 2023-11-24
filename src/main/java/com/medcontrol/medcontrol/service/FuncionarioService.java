@@ -36,7 +36,7 @@ public class FuncionarioService {
     public FuncionarioModel updateFuncionario(Long id, FuncionarioModel funcionario) {
         FuncionarioModel existingFuncionario = getFuncionarioById(id);
         existingFuncionario.setNome(funcionario.getNome());
-        existingFuncionario.setDepartamento(funcionario.getDepartamento());
+        existingFuncionario.setCargo(funcionario.getCargo());
 
         return funcionarioRepository.save(existingFuncionario);
     }
