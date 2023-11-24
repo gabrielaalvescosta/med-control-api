@@ -17,6 +17,9 @@ public class MedicamentoModel {
     private Long id;
 
     private String nome;
-    private String descricao;
+    private String fabricante;
+    private String principioAtivo;
+    private String dosagem;
+
 
 }

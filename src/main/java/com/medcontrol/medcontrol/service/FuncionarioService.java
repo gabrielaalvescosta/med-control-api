@@ -37,7 +37,6 @@ public class FuncionarioService {
         FuncionarioModel existingFuncionario = getFuncionarioById(id);
         existingFuncionario.setNome(funcionario.getNome());
         existingFuncionario.setDepartamento(funcionario.getDepartamento());
-        // Atualize outras propriedades conforme necessário
 
         return funcionarioRepository.save(existingFuncionario);
     }

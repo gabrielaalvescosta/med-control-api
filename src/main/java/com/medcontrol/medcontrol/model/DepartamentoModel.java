@@ -19,7 +19,7 @@ public class DepartamentoModel {
 
     private String nome;
 
-    @OneToMany(mappedBy = "departamento")
+    @OneToMany(mappedBy = "cargo")
     private List<FuncionarioModel> funcionarios;
 
 }

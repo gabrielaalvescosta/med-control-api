@@ -20,7 +20,7 @@ public class FuncionarioModel {
 
     @ManyToOne(optional = false)
     @JoinColumn(name = "cargo_id", nullable = false)
-    private DepartamentoModel departamento;
+    private DepartamentoModel cargo;
 
     @ManyToOne(optional = false)
     @JoinColumn(name = "funcionario_id", nullable = false)
