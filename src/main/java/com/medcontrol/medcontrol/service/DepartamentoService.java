@@ -1,5 +1,6 @@
 package com.medcontrol.medcontrol.service;
 
+import com.medcontrol.medcontrol.exception.DepartamentoNotFoundException;
 import com.medcontrol.medcontrol.model.DepartamentoModel;
 import com.medcontrol.medcontrol.repository.DepartamentoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,7 +23,7 @@ public class DepartamentoService {
 
     public DepartamentoModel getDepartamentoById(Long id) {
         Optional<DepartamentoModel> optionalDepartamento = departamentoRepository.findById(id);
-        return optionalDepartamento.orElseThrow(() -> new RuntimeException("Departamento não encontrado com o ID: " + id));
+        return optionalDepartamento.orElseThrow(() -> new DepartamentoNotFoundException("Departamento não encontrado com o ID: " + id));
     }
 
     public DepartamentoModel createDepartamento(DepartamentoModel departamento) {
@@ -34,7 +35,7 @@ public class DepartamentoService {
             departamento.setId(id);
             return departamentoRepository.save(departamento);
         } else {
-            throw new RuntimeException("Departamento não encontrado com o ID: " + id);
+            throw new DepartamentoNotFoundException("Departamento não encontrado com o ID: " + id);
         }
     }
 

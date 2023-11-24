@@ -1,5 +1,6 @@
 package com.medcontrol.medcontrol.service;
 
+import com.medcontrol.medcontrol.exception.UnidadeTrabalhoNotFoundException;
 import com.medcontrol.medcontrol.model.FuncionarioModel;
 import com.medcontrol.medcontrol.model.UnidadeTrabalhoModel;
 import com.medcontrol.medcontrol.repository.UnidadeTrabalhoRepository;
@@ -43,8 +44,9 @@ public class UnidadeTrabalhoService {
             funcionariosAtuais.addAll(funcionarios);
             unidade.setFuncionarios(funcionariosAtuais);
             return unidadeTrabalhoRepository.save(unidade);
+        } else {
+            throw new UnidadeTrabalhoNotFoundException("A unidade informada não existe");
         }
 
-        return null;
     }
 }

@@ -1,5 +1,6 @@
 package com.medcontrol.medcontrol.service;
 
+import com.medcontrol.medcontrol.exception.TransacaoNotFoundException;
 import com.medcontrol.medcontrol.model.TransacaoModel;
 import com.medcontrol.medcontrol.repository.TransacaoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,14 +22,21 @@ public class TransacaoService {
     }
 
     public TransacaoModel getTransacaoById(Long id) {
-        return transacaoRepository.findById(id).orElse(null);
+        return transacaoRepository.findById(id)
+                .orElseThrow(() -> new TransacaoNotFoundException("Transação não encontrada com o ID: " + id));
     }
+
 
     public TransacaoModel createTransacao(TransacaoModel transacao) {
         return transacaoRepository.save(transacao);
     }
 
     public void deleteTransacao(Long id) {
-        transacaoRepository.deleteById(id);
+        if (!transacaoRepository.existsById(id)) {
+            throw new TransacaoNotFoundException("O id para esta transação não existe ou já foi excluído: " + id);
+        } else {
+            transacaoRepository.deleteById(id);
+        }
     }
+
 }
