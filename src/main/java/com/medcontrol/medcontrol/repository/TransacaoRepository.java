@@ -6,5 +6,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface TransacaoRepository extends JpaRepository<TransacaoModel, Long> {
-    // Métodos específicos, se necessário
+
 }

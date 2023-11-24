@@ -6,5 +6,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface DepartamentoRepository extends JpaRepository<DepartamentoModel, Long> {
-    // Adicione métodos personalizados do repositório, se necessário
+
 }

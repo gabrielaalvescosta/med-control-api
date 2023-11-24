@@ -1,12 +1,15 @@
+package com.medcontrol.medcontrol.controller;
+
 import com.medcontrol.medcontrol.model.FuncionarioModel;
 import com.medcontrol.medcontrol.service.FuncionarioService;
-import com.medcontrol.service.FuncionarioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/api/funcionarios")
@@ -20,8 +23,8 @@ public class FuncionarioController {
     }
 
     @GetMapping
-    public ResponseEntity<Page<FuncionarioModel>> getAllFuncionarios(Pageable pageable) {
-        Page<FuncionarioModel> funcionarios = funcionarioService.getAllFuncionarios(pageable);
+    public ResponseEntity<List<FuncionarioModel>> getAllFuncionarios() {
+        List<FuncionarioModel> funcionarios = funcionarioService.getAllFuncionarios();
         return ResponseEntity.ok(funcionarios);
     }
 

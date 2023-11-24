@@ -1,9 +1,13 @@
 package com.medcontrol.medcontrol.model;
-import lombok.Data;
+import lombok.*;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
 
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 @Data
 @Entity
 @Table(name = "estoque")
@@ -17,6 +21,6 @@ public class EstoqueModel {
     @JoinColumn(name = "medicamento_id", nullable = false)
     private MedicamentoModel medicamento;
 
-    private BigDecimal quantidade;
+    private int quantidade;
 
 }

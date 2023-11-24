@@ -5,5 +5,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface MedicamentoRepository extends JpaRepository<MedicamentoModel, Long> {
-    // Métodos específicos, se necessário
+
 }

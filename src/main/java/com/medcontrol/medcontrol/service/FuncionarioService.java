@@ -1,12 +1,13 @@
 package com.medcontrol.medcontrol.service;
 
+import com.medcontrol.medcontrol.exception.FuncionarioNotFoundException;
 import com.medcontrol.medcontrol.model.FuncionarioModel;
 import com.medcontrol.medcontrol.repository.FuncionarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class FuncionarioService {
@@ -21,15 +22,27 @@ public class FuncionarioService {
         return funcionarioRepository.findAll();
     }
 
-    public Optional<FuncionarioModel> getFuncionarioById(Long id) {
-        return funcionarioRepository.findById(id);
+    public FuncionarioModel getFuncionarioById(Long id) {
+        return funcionarioRepository.findById(id)
+                .orElseThrow(() -> new FuncionarioNotFoundException("Funcionário não encontrado com o ID: " + id));
     }
 
-    public FuncionarioModel saveFuncionario(FuncionarioModel funcionario) {
-        // Lógica de validação e processamento, se necessário
+    @Transactional
+    public FuncionarioModel createFuncionario(FuncionarioModel funcionario) {
         return funcionarioRepository.save(funcionario);
     }
 
+    @Transactional
+    public FuncionarioModel updateFuncionario(Long id, FuncionarioModel funcionario) {
+        FuncionarioModel existingFuncionario = getFuncionarioById(id);
+        existingFuncionario.setNome(funcionario.getNome());
+        existingFuncionario.setDepartamento(funcionario.getDepartamento());
+        // Atualize outras propriedades conforme necessário
+
+        return funcionarioRepository.save(existingFuncionario);
+    }
+
+    @Transactional
     public void deleteFuncionario(Long id) {
         funcionarioRepository.deleteById(id);
     }

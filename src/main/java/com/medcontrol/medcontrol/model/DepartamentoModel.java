@@ -1,10 +1,13 @@
 package com.medcontrol.medcontrol.model;
 
-import lombok.Data;
+import lombok.*;
 
 import javax.persistence.*;
 import java.util.List;
-
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 @Data
 @Entity
 @Table(name = "departamento")
@@ -16,7 +19,7 @@ public class DepartamentoModel {
 
     private String nome;
 
-    @OneToMany(mappedBy = "cargo")
+    @OneToMany(mappedBy = "departamento")
     private List<FuncionarioModel> funcionarios;
 
 }

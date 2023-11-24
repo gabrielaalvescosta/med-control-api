@@ -1,9 +1,12 @@
 package com.medcontrol.medcontrol.model;
 
-import lombok.Data;
+import lombok.*;
 
 import javax.persistence.*;
-
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 @Data
 @Entity
 @Table(name = "medicamento")

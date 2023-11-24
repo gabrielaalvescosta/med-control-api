@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class UnidadeTrabalhoService {
@@ -21,12 +20,11 @@ public class UnidadeTrabalhoService {
         return unidadeTrabalhoRepository.findAll();
     }
 
-    public Optional<UnidadeTrabalhoModel> getUnidadeTrabalhoById(Long id) {
-        return unidadeTrabalhoRepository.findById(id);
+    public UnidadeTrabalhoModel getUnidadeTrabalhoById(Long id) {
+        return unidadeTrabalhoRepository.findById(id).orElse(null);
     }
 
-    public UnidadeTrabalhoModel saveUnidadeTrabalho(UnidadeTrabalhoModel unidadeTrabalho) {
-        // Lógica de validação e processamento, se necessário
+    public UnidadeTrabalhoModel createUnidadeTrabalho(UnidadeTrabalhoModel unidadeTrabalho) {
         return unidadeTrabalhoRepository.save(unidadeTrabalho);
     }
 

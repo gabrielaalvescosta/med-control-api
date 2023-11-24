@@ -2,13 +2,13 @@ package com.medcontrol.medcontrol.controller;
 
 import com.medcontrol.medcontrol.model.DepartamentoModel;
 import com.medcontrol.medcontrol.service.DepartamentoService;
-import com.medcontrol.service.DepartamentoService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/api/departamentos")
@@ -22,32 +22,44 @@ public class DepartamentoController {
     }
 
     @GetMapping
-    public ResponseEntity<Page<DepartamentoModel>> getAllDepartamentos(Pageable pageable) {
-        Page<DepartamentoModel> departamentos = departamentoService.getAllDepartamentos(pageable);
-        return ResponseEntity.ok(departamentos);
+    public ResponseEntity<List<DepartamentoModel>> getAllDepartamentos() {
+        List<DepartamentoModel> departamentos = departamentoService.getAllDepartamentos();
+        return new ResponseEntity<>(departamentos, HttpStatus.OK);
     }
 
     @GetMapping("/{id}")
     public ResponseEntity<DepartamentoModel> getDepartamentoById(@PathVariable Long id) {
         DepartamentoModel departamento = departamentoService.getDepartamentoById(id);
-        return ResponseEntity.ok(departamento);
+        if (departamento != null) {
+            return new ResponseEntity<>(departamento, HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
     }
 
     @PostMapping
-    public ResponseEntity<DepartamentoModel> createDepartamento(@Validated @RequestBody DepartamentoModel departamentoModel) {
-        DepartamentoModel createdDepartamento = departamentoService.createDepartamento(departamentoModel);
-        return ResponseEntity.ok(createdDepartamento);
+    public ResponseEntity<DepartamentoModel> createDepartamento(@RequestBody DepartamentoModel departamento) {
+        DepartamentoModel createdDepartamento = departamentoService.createDepartamento(departamento);
+        return new ResponseEntity<>(createdDepartamento, HttpStatus.CREATED);
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<DepartamentoModel> updateDepartamento(@PathVariable Long id, @Validated @RequestBody DepartamentoModel departamentoModel) {
-        DepartamentoModel updatedDepartamento = departamentoService.updateDepartamento(id, departamentoModel);
-        return ResponseEntity.ok(updatedDepartamento);
+    public ResponseEntity<DepartamentoModel> updateDepartamento(
+            @PathVariable Long id,
+            @RequestBody DepartamentoModel departamento) {
+        DepartamentoModel updatedDepartamento = departamentoService.updateDepartamento(id, departamento);
+
+        if (updatedDepartamento != null) {
+            return new ResponseEntity<>(updatedDepartamento, HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
     }
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteDepartamento(@PathVariable Long id) {
         departamentoService.deleteDepartamento(id);
-        return ResponseEntity.noContent().build();
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
+
 }

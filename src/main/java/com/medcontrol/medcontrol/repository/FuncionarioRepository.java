@@ -6,5 +6,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface FuncionarioRepository extends JpaRepository<FuncionarioModel, Long> {
-    // Métodos específicos, se necessário
+
 }

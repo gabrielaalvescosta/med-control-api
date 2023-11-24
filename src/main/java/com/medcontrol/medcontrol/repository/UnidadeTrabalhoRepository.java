@@ -6,5 +6,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface UnidadeTrabalhoRepository extends JpaRepository<UnidadeTrabalhoModel, Long> {
-    // Adicione métodos personalizados do repositório, se necessário
+
 }

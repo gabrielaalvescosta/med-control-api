@@ -2,13 +2,14 @@ package com.medcontrol.medcontrol.controller;
 
 import com.medcontrol.medcontrol.model.MedicamentoModel;
 import com.medcontrol.medcontrol.service.MedicamentoService;
-import com.medcontrol.service.MedicamentoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/api/medicamentos")
@@ -22,8 +23,8 @@ public class MedicamentoController {
     }
 
     @GetMapping
-    public ResponseEntity<Page<MedicamentoModel>> getAllMedicamentos(Pageable pageable) {
-        Page<MedicamentoModel> medicamentos = medicamentoService.getAllMedicamentos(pageable);
+    public ResponseEntity<List<MedicamentoModel>> getAllMedicamentos(Pageable pageable) {
+        List<MedicamentoModel> medicamentos = medicamentoService.getAllMedicamentos();
         return ResponseEntity.ok(medicamentos);
     }
 
@@ -39,11 +40,6 @@ public class MedicamentoController {
         return ResponseEntity.ok(createdMedicamento);
     }
 
-    @PutMapping("/{id}")
-    public ResponseEntity<MedicamentoModel> updateMedicamento(@PathVariable Long id, @Validated @RequestBody MedicamentoModel medicamentoModel) {
-        MedicamentoModel updatedMedicamento = medicamentoService.updateMedicamento(id, medicamentoModel);
-        return ResponseEntity.ok(updatedMedicamento);
-    }
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteMedicamento(@PathVariable Long id) {

@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class TransacaoService {
@@ -21,12 +20,11 @@ public class TransacaoService {
         return transacaoRepository.findAll();
     }
 
-    public Optional<TransacaoModel> getTransacaoById(Long id) {
-        return transacaoRepository.findById(id);
+    public TransacaoModel getTransacaoById(Long id) {
+        return transacaoRepository.findById(id).orElse(null);
     }
 
-    public TransacaoModel saveTransacao(TransacaoModel transacao) {
-        // Lógica de validação e processamento, se necessário
+    public TransacaoModel createTransacao(TransacaoModel transacao) {
         return transacaoRepository.save(transacao);
     }
 

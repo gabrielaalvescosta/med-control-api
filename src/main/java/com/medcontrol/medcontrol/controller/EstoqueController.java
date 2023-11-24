@@ -2,13 +2,15 @@ package com.medcontrol.medcontrol.controller;
 
 import com.medcontrol.medcontrol.model.EstoqueModel;
 import com.medcontrol.medcontrol.service.EstoqueService;
-import com.medcontrol.service.EstoqueService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/estoques")
@@ -22,8 +24,8 @@ public class EstoqueController {
     }
 
     @GetMapping
-    public ResponseEntity<Page<EstoqueModel>> getAllEstoques(Pageable pageable) {
-        Page<EstoqueModel> estoques = estoqueService.getAllEstoques(pageable);
+    public ResponseEntity<List<EstoqueModel>> getAllEstoques() {
+        List<EstoqueModel> estoques = estoqueService.getAllEstoques();
         return ResponseEntity.ok(estoques);
     }
 
@@ -35,7 +37,7 @@ public class EstoqueController {
 
     @PostMapping
     public ResponseEntity<EstoqueModel> createEstoque(@Validated @RequestBody EstoqueModel estoqueModel) {
-        EstoqueModel createdEstoque = estoqueService.createEstoque(estoqueModel);
+        EstoqueModel createdEstoque = estoqueService.saveEstoque(estoqueModel);
         return ResponseEntity.ok(createdEstoque);
     }
 

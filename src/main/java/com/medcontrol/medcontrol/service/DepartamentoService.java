@@ -12,7 +12,6 @@ import java.util.Optional;
 public class DepartamentoService {
     private final DepartamentoRepository departamentoRepository;
 
-    @Autowired
     public DepartamentoService(DepartamentoRepository departamentoRepository) {
         this.departamentoRepository = departamentoRepository;
     }
@@ -21,13 +20,22 @@ public class DepartamentoService {
         return departamentoRepository.findAll();
     }
 
-    public Optional<DepartamentoModel> getDepartamentoById(Long id) {
-        return departamentoRepository.findById(id);
+    public DepartamentoModel getDepartamentoById(Long id) {
+        Optional<DepartamentoModel> optionalDepartamento = departamentoRepository.findById(id);
+        return optionalDepartamento.orElseThrow(() -> new RuntimeException("Departamento não encontrado com o ID: " + id));
     }
 
-    public DepartamentoModel saveDepartamento(DepartamentoModel departamento) {
-        // Lógica de validação e processamento, se necessário
+    public DepartamentoModel createDepartamento(DepartamentoModel departamento) {
         return departamentoRepository.save(departamento);
+    }
+
+    public DepartamentoModel updateDepartamento(Long id, DepartamentoModel departamento) {
+        if (departamentoRepository.existsById(id)) {
+            departamento.setId(id);
+            return departamentoRepository.save(departamento);
+        } else {
+            throw new RuntimeException("Departamento não encontrado com o ID: " + id);
+        }
     }
 
     public void deleteDepartamento(Long id) {

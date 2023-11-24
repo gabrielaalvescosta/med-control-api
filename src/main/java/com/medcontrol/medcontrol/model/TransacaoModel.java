@@ -1,10 +1,13 @@
 package com.medcontrol.medcontrol.model;
-import lombok.Data;
+import lombok.*;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
 import java.time.LocalDate;
-
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 @Data
 @Entity
 @Table(name = "transacao")

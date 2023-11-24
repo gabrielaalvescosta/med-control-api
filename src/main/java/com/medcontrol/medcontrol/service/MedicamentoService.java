@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class MedicamentoService {
@@ -21,12 +20,11 @@ public class MedicamentoService {
         return medicamentoRepository.findAll();
     }
 
-    public Optional<MedicamentoModel> getMedicamentoById(Long id) {
-        return medicamentoRepository.findById(id);
+    public MedicamentoModel getMedicamentoById(Long id) {
+        return medicamentoRepository.findById(id).orElse(null);
     }
 
-    public MedicamentoModel saveMedicamento(MedicamentoModel medicamento) {
-        // Lógica de validação e processamento, se necessário
+    public MedicamentoModel createMedicamento(MedicamentoModel medicamento) {
         return medicamentoRepository.save(medicamento);
     }
 
