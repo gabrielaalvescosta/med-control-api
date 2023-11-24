@@ -36,8 +36,8 @@ MedControl oferece vários impactos positivos na saúde pública e na sociedade,
 Globalmente, esses impactos positivos contribuem para uma gestão mais eficaz de recursos farmacêuticos, melhorando a qualidade do atendimento ao paciente e fortalecendo o sistema de saúde como um todo.
 
 # Front-end desta aplicação
-O front-end da aplicação MedControl foi desenvolvido com React Native pela Milena Góes. Ela trouxe sua expertise para criar uma interface intuitiva e amigável utilizando o figma e aplicação do código em React Native, dedicado ao Android. O código-fonte do front-end está disponível no repositório GitHub dela: [GitHub Milena Góes](https://github.com/milenaggoes). Fique atento para futuras atualizações e contribuições!
-
+O front-end da aplicação MedControl foi desenvolvido com React Native pela Milena Góes. Ela trouxe sua expertise para criar uma interface intuitiva e amigável utilizando o figma e aplicação do código em React Native, dedicado ao Android. O código-fonte do front-end está disponível no repositório GitHub dela: [Milena Góes](https://github.com/milenaggoes). Fique atento para futuras atualizações e contribuições! Confira o projeto completo: 
+- [MedControl Front-end](https://github.com/milenaggoes/MediControl)
 
 # Endpoints
 
@@ -91,7 +91,7 @@ O front-end da aplicação MedControl foi desenvolvido com React Native pela Mil
    mvn spring-boot:run
    ```
 
-A API estará acessível em `http://localhost:8888/medcontrol/api`.
+A API estará acessível em `http://localhost:8080/medcontrol/api`.
 
 ## Funcionário
 #### Obter detalhes do funcionário a partir do ID
