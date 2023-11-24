@@ -34,7 +34,7 @@ public class MedicamentoController {
         return ResponseEntity.ok(medicamento);
     }
 
-    @PostMapping
+    @PostMapping("/cadastrar")
     public ResponseEntity<MedicamentoModel> createMedicamento(@Validated @RequestBody MedicamentoModel medicamentoModel) {
         MedicamentoModel createdMedicamento = medicamentoService.createMedicamento(medicamentoModel);
         return ResponseEntity.ok(createdMedicamento);
