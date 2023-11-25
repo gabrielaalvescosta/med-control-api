@@ -1,5 +1,8 @@
 # MedControl API
 Projeto referente à plataforma mobile de auxílio aos profissionais do ramo farmacêutico, denominado "MedControl". A finalidade principal é facilitar o controle de estoque e compras para farmácias, tornando o processo menos burocrático e mais eficiente. A API MedControl gerencia transações, funcionários, medicamentos, estoque, departamentos e unidades de trabalho para auxiliar profissionais do ramo farmacêutico no controle de estoque e compras.
+
+- Confira o nosso pitch no youtube: [https://www.youtube.com/watch?v=6-vvw9vcLGQ](https://www.youtube.com/watch?v=6-vvw9vcLGQ)
+
 # Impactos 
 MedControl oferece vários impactos positivos na saúde pública e na sociedade, proporcionando melhorias significativas para profissionais do ramo farmacêutico, pacientes e a comunidade em geral. Alguns dos benefícios incluem:
 
