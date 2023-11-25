@@ -3,6 +3,14 @@ Projeto referente à plataforma mobile de auxílio aos profissionais do ramo far
 
 - Confira o nosso pitch no youtube: [https://www.youtube.com/watch?v=6-vvw9vcLGQ](https://www.youtube.com/watch?v=6-vvw9vcLGQ)
 
+### Dados de acesso - Server Azure
+
+```
+usuario: admer
+senha: Admin1234
+
+```
+
 # Impactos 
 MedControl oferece vários impactos positivos na saúde pública e na sociedade, proporcionando melhorias significativas para profissionais do ramo farmacêutico, pacientes e a comunidade em geral. Alguns dos benefícios incluem:
 
